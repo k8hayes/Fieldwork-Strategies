@@ -14,12 +14,14 @@ colnames(data) <- c("Timestamp", "Career_Stage", "Yr_lead",
                     "During_ActPhys", "Before_ActInter", "During_ActInter",
                     "After_act", "Volunteer","Success", "Challenges", "Gen_Advice",
                     "Resources_grad","Policies", "Other")
+
+length(data$Timestamp) # 94 entries
+
 # Career stage #########################################
 
 unique(data$Career_Stage)
 
 data$Career_Stage[data$Career_Stage == "Just completed graduate program in Aug 2021"] <- "Graduate Student" 
-
 
 data$Career_Stage[data$Career_Stage == "Postdoctoral non-academic track"] <- "Postdoctoral researcher"
 
@@ -108,3 +110,4 @@ data_region <- data %>%
 barplot(n ~ Where, data = data_region)
 
 write.csv(data, here("data/Grad_survey.csv"), row.names = F)
+
