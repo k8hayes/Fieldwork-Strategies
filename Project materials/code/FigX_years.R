@@ -11,7 +11,8 @@ yr_fieldplot <- data %>%
   filter(Career_Stage != "") %>%
   ggplot(aes(x = Yr_field, fill = Career_Stage)) + geom_histogram(binwidth = 5, center = 2.5) + 
   labs(title = "Field experience",
-       x = "Years") + theme(legend.position = "none")
+       x = "Years") + theme(legend.position = "none") + 
+  ylim(0,80)
 yr_fieldplot
 
 yr_leadplot <- data %>%
@@ -19,7 +20,8 @@ yr_leadplot <- data %>%
   filter(Career_Stage != "") %>%
   ggplot(aes(x = Yr_lead, fill = Career_Stage)) + geom_histogram(binwidth = 5, center = 2.5) + 
   labs(title = "Experience leading fieldwork",
-       x = "Years") + theme(legend.position = "none")
+       x = "Years") + theme(legend.position = "none") + 
+  ylim(0,80)
 yr_leadplot
 
 yr_supplot <- data %>%
@@ -27,7 +29,8 @@ yr_supplot <- data %>%
   filter(Career_Stage != "") %>%
   ggplot(aes(x = Yr_super, fill = Career_Stage)) + geom_histogram(binwidth = 5, center = 2.5) + 
   labs(title = "Experience supervising fieldwork",
-       x = "Years")
+       x = "Years") + 
+  ylim(0,80)
 yr_supplot
 
 plot_grid(yr_fieldplot, yr_leadplot, yr_supplot, nrow = 1, ncol = 3,
